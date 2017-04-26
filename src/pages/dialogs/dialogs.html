@@ -1,0 +1,60 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Dialogs</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+	<p><ion-icon name="ios-alert-outline"></ion-icon> <i>Available on a device only.</i></p>
+
+	<ion-list>
+		<ion-item-divider>Alert dialog</ion-item-divider>
+		<ion-item>
+			<ion-label>Title</ion-label>
+			<ion-input type="text" [(ngModel)]="alertTitle"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label>Message</ion-label>
+			<ion-input type="text" [(ngModel)]="alertMessage"></ion-input>
+		</ion-item>
+		<p>
+			<button ion-button block color="secondary" (click)="showAlert()">Alert</button>
+		</p>
+		<ion-item-divider>Confirm dialog</ion-item-divider>
+		<ion-item>
+			<ion-label>Title</ion-label>
+			<ion-input type="text" [(ngModel)]="confirmTitle"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label>Message</ion-label>
+			<ion-input type="text" [(ngModel)]="confirmMessage"></ion-input>
+		</ion-item>
+		<p>
+			<button ion-button block color="secondary" (click)="showConfirm()">Confirm</button>
+		</p>
+		<ion-item-divider>Prompt dialog</ion-item-divider>
+		<ion-item>
+			<ion-label>Title</ion-label>
+			<ion-input type="text" [(ngModel)]="promptTitle"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label>Message</ion-label>
+			<ion-input type="text" [(ngModel)]="promptMessage"></ion-input>
+		</ion-item>
+		<p>
+			<button ion-button block color="secondary" (click)="showPrompt()">Prompt</button>
+		</p>
+		<ion-item-divider>Beep</ion-item-divider>
+		<ion-item>
+			<ion-label>Number of times</ion-label>
+			<ion-input type="text" [(ngModel)]="times"></ion-input>
+		</ion-item>
+		<p>
+			<button ion-button block color="secondary" (click)="showBeep()">Beep</button>
+		</p>
+	</ion-list>
+</ion-content>

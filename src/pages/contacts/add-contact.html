@@ -1,0 +1,30 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>Add contact</ion-title>
+
+		<ion-buttons end>
+			<button ion-button (click)="close()">Close</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-list>
+		<ion-item>
+			<ion-label stacked>First name</ion-label>
+			<ion-input type="text" [(ngModel)]="newContact.firstName"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Last name</ion-label>
+			<ion-input type="text" [(ngModel)]="newContact.lastName"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Phone number</ion-label>
+			<ion-input type="text" [(ngModel)]="newContact.phoneNumber"></ion-input>
+		</ion-item>
+
+		<div padding>
+			<button ion-button full (click)="save()">Save</button>
+		</div>
+	</ion-list>
+</ion-content>

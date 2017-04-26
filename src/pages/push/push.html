@@ -1,0 +1,20 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Push</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-list>
+		<ion-item>
+			<ion-label>Message</ion-label>
+			<ion-input type="text" [(ngModel)]="message"></ion-input>
+		</ion-item>
+		<p>
+			<button ion-button block color="secondary" (click)="sendMessage()">Send</button>
+		</p>
+	</ion-list>
+</ion-content>

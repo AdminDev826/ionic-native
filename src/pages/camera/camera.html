@@ -1,0 +1,24 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Camera</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<p><ion-icon name="ios-alert-outline"></ion-icon> <i>Available on a device only.</i></p>
+
+	<ion-list>
+
+		<ion-item *ngIf="picture">
+			<img [src]="picture">
+		</ion-item>
+	</ion-list>
+
+	<p>
+		<button ion-button block color="secondary" (click)="getPicture()">Get a Photo</button>
+	</p>
+	
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Crop</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<p><ion-icon name="ios-alert-outline"></ion-icon> <i>Available on a device only.</i></p>
+
+	<ion-list>
+		<ion-item *ngIf="imageFromLib">
+			<img [src]="imageFromLib">
+		</ion-item>
+	</ion-list>
+	<p>
+		<button ion-button block color="secondary" (click)="getPicture()">
+			Get picture from PHOTOLIBRARY
+		</button>
+	</p>
+	<p *ngIf="imageFromLib">
+		<button ion-button block color="secondary" (click)="makeCropImage()">Crop Image</button>
+	</p>
+	<ion-list>
+		<ion-item *ngIf="cropImage">
+			<img [src]="cropImage">
+		</ion-item>
+	</ion-list>
+</ion-content>

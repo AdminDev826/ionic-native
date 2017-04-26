@@ -1,0 +1,38 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Native storage</ion-title>
+
+		<ion-buttons end>
+			<button ion-button (click)="addItem()">
+				<ion-icon name="add"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-list id="local-storage-list">
+		<ion-list-header style="text-align: center">
+			Available on a device only
+		</ion-list-header>
+		<ion-item-sliding *ngFor="let item of items">
+			<ion-item text-wrap>
+				<h2>{{item.title}}</h2>
+				<p>{{item.teaser}}</p>
+			</ion-item>
+			<ion-item-options>
+				<button ion-button primary (click)="editItem(item)">
+					<ion-icon name="create"></ion-icon>
+					Edit
+				</button>
+				<button ion-button danger (click)="deleteItem(item.id)">
+					<ion-icon name="trash"></ion-icon>
+					Delete
+				</button>
+			</ion-item-options>
+		</ion-item-sliding>
+	</ion-list>
+</ion-content>

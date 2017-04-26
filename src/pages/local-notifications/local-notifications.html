@@ -1,0 +1,53 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Local Notifications</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<p><ion-icon name="ios-alert-outline"></ion-icon> <i>Available on a device only.</i></p>
+
+	<ion-list>
+		<ion-item-divider>Single Notification</ion-item-divider>
+		<ion-item>
+			<ion-label stacked>Text for Single Notification</ion-label>
+			<ion-input type="text" [(ngModel)]="singleText"></ion-input>
+		</ion-item>
+		<p>
+			<button ion-button block color="secondary" (click)="showSingleNotification()">
+				Show Single Notification
+			</button>
+		</p>
+		<ion-item-divider>Multiple Notification</ion-item-divider>
+		<ion-item>
+			<ion-label stacked>Title for Multiple Notification</ion-label>
+			<ion-input type="text" [(ngModel)]="multipleTitle"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Text for Multiple Notification</ion-label>
+			<ion-input type="text" [(ngModel)]="multipleText_1"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Text for Multiple Notification</ion-label>
+			<ion-input type="text" [(ngModel)]="multipleText_2"></ion-input>
+		</ion-item>
+		<p>
+			<button ion-button block color="secondary" (click)="showMultipleNotification()">
+				Show Multiple Notification
+			</button>
+		</p>
+		<ion-item-divider>Delayed Notification</ion-item-divider>
+		<ion-item>
+			<ion-label stacked>Text for Delayed Notification</ion-label>
+			<ion-input type="text" [(ngModel)]="delayedText"></ion-input>
+		</ion-item>
+		<p>
+			<button ion-button block color="secondary" (click)="showDelayedNotification()">
+				Show Delayed Notification
+			</button>
+		</p>
+	</ion-list>
+</ion-content>

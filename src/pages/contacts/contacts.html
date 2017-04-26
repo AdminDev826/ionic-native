@@ -1,0 +1,39 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Contacts</ion-title>
+
+		<ion-buttons end>
+			<button ion-button (click)="addContact()">
+				<ion-icon name="add"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+
+	<p padding>
+		<ion-icon name="ios-alert-outline"></ion-icon>
+		<i>Available on a device only.</i>
+	</p>
+
+	<ion-list>
+		<ion-item>
+			<ion-label stacked>Search..</ion-label>
+			<ion-input type="text" [(ngModel)]="searchFilter"></ion-input>
+		</ion-item>
+
+		<div padding>
+			<button ion-button block color="secondary" (click)="findContacts()">Find contacts</button>
+		</div>
+	</ion-list>
+	<ion-list>
+		<ion-item *ngFor="let contact of contacts" (click)="showDetails(contact)">
+			<h2>{{contact.name.formatted}}</h2>
+			<p *ngIf="contact.phoneNumbers && contact.phoneNumbers[0]">{{contact.phoneNumbers[0].value}}</p>
+		</ion-item>
+	</ion-list>
+</ion-content>

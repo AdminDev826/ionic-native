@@ -1,0 +1,25 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>Add item</ion-title>
+
+		<ion-buttons end>
+			<button ion-button (click)="close()">Close</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-list>
+		<ion-item>
+			<ion-label floating>Title</ion-label>
+			<ion-input type="text" [(ngModel)]="item.title"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label floating>Teaser</ion-label>
+			<ion-textarea [(ngModel)]="item.teaser"></ion-textarea>
+		</ion-item>
+		<div padding>
+			<button ion-button full (click)="save()">Save</button>
+		</div>
+	</ion-list>
+</ion-content>

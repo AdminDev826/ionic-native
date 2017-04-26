@@ -1,0 +1,30 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Brightness</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<p>Lets you control the display brightness of your device.</p>
+
+	<p><ion-icon name="ios-alert-outline"></ion-icon> <i>Available on a device only.</i></p>
+
+	<ion-list>
+		<ion-list-header *ngIf="isCordova">
+			Adjust Display
+		</ion-list-header>
+		<ion-item *ngIf="isCordova">
+			<ion-range [(ngModel)]="brightness" (ngModelChange)="onChange($event)">
+				<ion-icon range-left small name="sunny"></ion-icon>
+				<ion-icon range-right name="sunny"></ion-icon>
+			</ion-range>
+		</ion-item>
+		<ion-item *ngIf="isCordova">
+			Brightness: {{brightness}}
+		</ion-item>
+	</ion-list>
+</ion-content>

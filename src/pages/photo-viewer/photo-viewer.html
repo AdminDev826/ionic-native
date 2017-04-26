@@ -1,0 +1,47 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Photo Viewer</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<h3>Test Instructions</h3>
+	<ion-list no-lines>
+	  <ion-item>
+	    1. Take a picture
+	  </ion-item>
+		<ion-item>
+	    2. Set a title
+	  </ion-item>
+		<ion-item>
+	    3. Select "Show in Full screen"
+	  </ion-item>
+	</ion-list>
+
+	<p><ion-icon name="ios-alert-outline"></ion-icon> <i>Available on a device only.</i></p>
+
+	<ion-list>
+		<ion-item>
+			<ion-label stacked>Title of Image</ion-label>
+			<ion-input type="text" [(ngModel)]="imageTitle"></ion-input>
+		</ion-item>
+	</ion-list>
+	<p>
+		<button ion-button block color="secondary" (click)="getPicture()">
+			Step 1: Take a picture
+		</button>
+	</p>
+	<p>
+		<button ion-button block color="secondary" (click)="showImage()">
+			Step 2: Show in Full Screen
+		</button>
+	</p>
+	<ion-list>
+		<ion-item *ngIf="image">
+			<img [src]="image">
+		</ion-item>
+	</ion-list>
+</ion-content>

@@ -1,0 +1,35 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Clipboard</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<p>Enables clipboard management for Cordova/PhoneGap that supports iOS and Android. Only works with text content.</p>
+
+	<p><ion-icon name="ios-alert-outline"></ion-icon> <i>Available on a device only.</i></p>
+
+	<ion-list>
+		<ion-item>
+			<ion-label>Text for copy</ion-label>
+			<ion-input type="text" [(ngModel)]="copyText"></ion-input>
+		</ion-item>
+	</ion-list>
+	<p>
+		<button ion-button block color="secondary" (click)="copy()">Copy</button>
+	</p>
+
+	<p>
+		<button ion-button block color="secondary" (click)="paste()">Paste</button>
+	</p>
+
+	<ion-list>
+		<ion-item *ngIf="pasteText">
+			<h2>{{pasteText}}</h2>
+		</ion-item>
+	</ion-list>
+	
+</ion-content>

@@ -1,0 +1,25 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Navigator</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+	<p><ion-icon name="ios-alert-outline"></ion-icon> <i>Available on a device only.</i></p>
+
+	<ion-list>
+		<ion-item>
+			<ion-label>Enter destination</ion-label>
+			<ion-input type="text" [(ngModel)]="destination"></ion-input>
+		</ion-item>
+	</ion-list>
+
+	<p>
+		<button ion-button block color="secondary" (click)="launchNavigator()">Launch Navigator</button>
+	</p>
+	
+</ion-content>

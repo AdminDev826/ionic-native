@@ -1,0 +1,43 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Badge</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	
+	<p><ion-icon name="ios-alert-outline"></ion-icon> <i>Available on a device only.</i></p>
+
+	<ion-list>
+		<ion-item>
+			<ion-label stacked>Type number..</ion-label>
+			<ion-input type="number" [(ngModel)]="budgeNumber"></ion-input>
+		</ion-item>
+		<p>
+			<button ion-button block color="secondary" (click)="setBadge()">Set Badge</button>
+		</p>
+		<p>
+			<button ion-button block color="secondary" (click)="getBadge()">Get Badge</button>
+		</p>
+		<ion-item>
+			<ion-label stacked>Type number..</ion-label>
+			<ion-input type="number" [(ngModel)]="increaseBy"></ion-input>
+		</ion-item>
+		<p>
+			<button ion-button block color="secondary" (click)="increaseBadge()">Increase Badge</button>
+		</p>
+		<ion-item>
+			<ion-label stacked>Type number..</ion-label>
+			<ion-input type="number" [(ngModel)]="decreaseBy"></ion-input>
+		</ion-item>
+		<p>
+			<button ion-button block color="secondary" (click)="decreaseBadge()">Decrease Badge</button>
+		</p>
+		<p>
+			<button ion-button block color="secondary" (click)="clearBadge()">Clear Badge</button>
+		</p>
+	</ion-list>
+</ion-content>

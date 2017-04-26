@@ -1,0 +1,30 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Info</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<p>Gets info from the Sim card like the carrier name, mcc, mnc and country code and other system dependent info.</p>
+
+	<p><ion-icon name="ios-alert-outline"></ion-icon> <i>Available on a device only.</i></p>
+
+	<ion-list>
+		<ion-item *ngIf="carrierName">
+			Service Provider Name: {{carrierName}}
+		</ion-item>
+		<ion-item *ngIf="countryCode">
+			ISO country code: {{countryCode}}
+		</ion-item>
+		<ion-item *ngIf="mcc">
+			Mobile country code: {{mcc}}
+		</ion-item>
+		<ion-item *ngIf="mnc">
+			Mobile network code: {{mnc}}
+		</ion-item>
+	</ion-list>
+</ion-content>

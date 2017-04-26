@@ -1,0 +1,33 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Device</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<p><ion-icon name="ios-alert-outline"></ion-icon> <i>Available on a device only.</i></p>
+
+	<ion-list>
+		<ion-item *ngIf="device">
+			<h2>Device UUID is: {{device.uuid}}</h2>
+		</ion-item>
+		<ion-item *ngIf="device">
+			<h2>Device Model is: {{device.model}}</h2>
+		</ion-item>
+		<ion-item *ngIf="device">
+			<h2>Device Version is: {{device.version}}</h2>
+		</ion-item>
+		<ion-item *ngIf="device">
+			<h2>Device Version is: {{device.manufacturer}}</h2>
+		</ion-item>
+		<ion-item *ngIf="device">
+			<h2>Device isVirtual: {{device.isVirtual}}</h2>
+		</ion-item>
+		<ion-item *ngIf="device">
+			<h2>Device Serial Number is: {{device.serial}}</h2>
+		</ion-item>
+	</ion-list>
+</ion-content>

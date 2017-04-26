@@ -1,0 +1,24 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>App Availability</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<p>Allows you to check if an app is installed on the user's device. It requires an URI Scheme (e.g. twitter://) on iOS or a Package Name (e.g com.twitter.android) on Android.</p>
+
+	<p><ion-icon name="ios-alert-outline"></ion-icon> <i>Available on a device only.</i></p>
+
+	<ion-list>
+		<ion-item>
+			<ion-label>Application</ion-label>
+			<ion-input type="text" [(ngModel)]="package"></ion-input>
+		</ion-item>
+		<p>
+			<button ion-button block color="secondary" (click)="checkApp()">Check App</button>
+		</p>
+	</ion-list>
+</ion-content>

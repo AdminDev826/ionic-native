@@ -1,0 +1,20 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Vibration</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<h1 class="as-header-icon">
+		<ion-icon name="phone-portrait"></ion-icon>
+	</h1>
+	<p>Vibrates the device.</p>
+	<p><ion-icon name="ios-alert-outline"></ion-icon><i>Available on a device only</i></p>
+	<p>The first button vibrates the device once and the second one vibrates it twice with a pause in between.</p>
+	<p><button ion-button block color="secondary" (click)="vibrate()">Vibrate</button></p>
+	<p><button ion-button block color="secondary" (click)="vibrateWithPause()">Vibrate with pause (Android)</button></p>
+</ion-content>

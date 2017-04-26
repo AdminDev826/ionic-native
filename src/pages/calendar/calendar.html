@@ -1,0 +1,63 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Calendar</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+	<p><ion-icon name="ios-alert-outline"></ion-icon> <i>Available on a device only.</i></p>
+
+	<ion-list>
+		<ion-item>
+			<ion-label stacked>Name of Calendar</ion-label>
+			<ion-input type="text" [(ngModel)]="calendarName"></ion-input>
+		</ion-item>
+	</ion-list>
+
+	<p>
+		<button ion-button block color="secondary" (click)="createCalendar()">Create Calendar</button>
+	</p>
+
+	<ion-list>
+		<ion-item>
+			<ion-label>Select Date</ion-label>
+			<ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="showDate"></ion-datetime>
+		</ion-item>
+	</ion-list>
+
+	<p>
+		<button ion-button block color="secondary" (click)="openCalendar()">Open Calendar</button>
+	</p>
+
+	<ion-list>
+		<ion-item>
+			<ion-label stacked>Title of event</ion-label>
+			<ion-input type="text" [(ngModel)]="eventTitle"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Location of event</ion-label>
+			<ion-input type="text" [(ngModel)]="eventLocation"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Notes of event</ion-label>
+			<ion-input type="text" [(ngModel)]="eventNotes"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label>Start Date</ion-label>
+			<ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="startDate"></ion-datetime>
+		</ion-item>
+		<ion-item>
+			<ion-label>End Date</ion-label>
+			<ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="endDate"></ion-datetime>
+		</ion-item>
+	</ion-list>
+
+	<p>
+		<button (click)="createEvent()" ion-button block color="secondary">Create Event</button>
+	</p>
+	
+</ion-content>

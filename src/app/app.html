@@ -1,0 +1,24 @@
+<ion-menu id="leftMenu" type="overlay" [content]="content">
+
+	<ion-header>
+		<ion-toolbar>
+			<ion-title>Pages</ion-title>
+		</ion-toolbar>
+	</ion-header>
+
+	<ion-content [menuClose]="wide">
+		<ion-list>
+			<ion-item (click)="openPage(homePage)">
+				<ion-icon [name]="homePage.icon" item-left></ion-icon>
+				{{homePage.title}}
+			</ion-item>
+			<ion-item *ngFor="let p of nativePages" (click)="openPage(p)">
+				<ion-icon [name]="p.icon" item-left></ion-icon>
+				{{p.title}}
+			</ion-item>
+		</ion-list>
+	</ion-content>
+
+</ion-menu>
+
+<ion-nav id="nav" [root]="rootPage" #content swipe-back-enabled="false"></ion-nav>

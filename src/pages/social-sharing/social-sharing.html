@@ -1,0 +1,45 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Social Sharing</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<p><ion-icon name="ios-alert-outline"></ion-icon> <i>Available on a device only.</i></p>
+
+	<ion-list>
+		<ion-item-divider>Share Via Email</ion-item-divider>
+		<ion-item>
+			<ion-label stacked>Subject</ion-label>
+			<ion-input type="text" [(ngModel)]="emailSubject"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Type massage ..</ion-label>
+			<ion-input type="text" [(ngModel)]="emailMassage"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Emails:</ion-label>
+			<ion-input type="text" [(ngModel)]="emails"></ion-input>
+		</ion-item>
+		<p><button (click)="shareViaEmail()" ion-button block color="secondary">Share Via Email</button></p>
+
+		<ion-item-divider>Share Via Facebook</ion-item-divider>
+		<ion-item>
+			<ion-label stacked>Subject</ion-label>
+			<ion-input type="text" [(ngModel)]="facebookSubject"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Type massage ..</ion-label>
+			<ion-input type="text" [(ngModel)]="facebookMassage"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Type massage for sharing ..</ion-label>
+			<ion-input type="text" [(ngModel)]="facebookImage"></ion-input>
+		</ion-item>
+		<p><button (click)="shareViaFacebook()" ion-button block color="secondary">Share Via Facebook</button></p>
+	</ion-list>
+</ion-content>

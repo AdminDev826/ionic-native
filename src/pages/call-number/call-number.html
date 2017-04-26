@@ -1,0 +1,25 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Call Number</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<p>Call a number directly from your Cordova/Ionic application.</p>
+	<p><ion-icon name="ios-alert-outline"></ion-icon> <i>Available on a device only.</i></p>
+
+	<ion-list>
+		<ion-item>
+			<ion-label stacked>Type number...</ion-label>
+			<ion-input type="text" [(ngModel)]="number"></ion-input>
+		</ion-item>
+	</ion-list>
+
+	<p>
+		<button ion-button block color="secondary" (click)="callNumber()">Make a Call</button>
+	</p>
+
+</ion-content>

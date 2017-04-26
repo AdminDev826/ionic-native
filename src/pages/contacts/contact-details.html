@@ -1,0 +1,48 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>Details</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-list>
+		<ion-item-group>
+			<ion-item-divider color="light">About</ion-item-divider>
+			<ion-item>
+				<ion-avatar item-left *ngIf="contact.photos && contact.photos.length">
+					<img [src]="contact.photos[0].value">
+				</ion-avatar>
+				<h2>{{contact.name.formatted}}</h2>
+				<h3>{{contact.birthday | date : 'longDate'}}</h3>
+				<p>{{contact.note}}</p>
+			</ion-item>
+		</ion-item-group>
+
+		<ion-item-group *ngIf="contact.phoneNumbers && contact.phoneNumbers.length">
+			<ion-item-divider color="light">Phone numbers</ion-item-divider>
+			<ion-item *ngFor="let num of contact.phoneNumbers">
+				{{num.value}}
+				<ion-note item-right>{{num.type}}</ion-note>
+			</ion-item>
+		</ion-item-group>
+
+		<ion-item-group *ngFor="let address of contact.addresses">
+			<ion-item-divider color="light">Address</ion-item-divider>
+			<ion-item>{{address.locality}}
+				<ion-note item-right>Locality</ion-note>
+			</ion-item>
+			<ion-item>{{address.region}}
+				<ion-note item-right>Region</ion-note>
+			</ion-item>
+			<ion-item>{{address.postalCode}}
+				<ion-note item-right>Postal code</ion-note>
+			</ion-item>
+			<ion-item>{{address.country}}
+				<ion-note item-right>Country</ion-note>
+			</ion-item>
+			<ion-item>{{address.streetAddress}}
+				<ion-note item-right>Street address</ion-note>
+			</ion-item>
+		</ion-item-group>
+	</ion-list>
+</ion-content>
