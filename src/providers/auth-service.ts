@@ -1,21 +1,10 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import { Http, Headers, RequestOptions } from '@angular/http';
+import { User } from "../models/User";
 import 'rxjs/add/operator/map';
  
-export class User {
-  id: number;
-  firstname: string;
-  lastname: string;
-  address1: string;
-  address2: string;
-  city: string;
-  country: string;
-  tel: string;
-  email: string;
-  password: string;
-  error: string;
-}
+
  
 @Injectable()
 export class AuthService {
@@ -28,6 +17,7 @@ export class AuthService {
       return Observable.throw("Please insert credentials");
     } else {
       return Observable.create(observer => {
+        let o_this = this
         // let url = 'https://www.reddit.com/r/gifs/new/.json?limit=10';
         let url = 'http://dateworld.co:8080/accounts/resources/login';
         var headers = new Headers({
@@ -43,11 +33,15 @@ export class AuthService {
             password: credentials.password
         };
 
-        this.http.post(url, postData).map(res => res.json() as User).subscribe(data => {
+        this.http.post(url, postData).map(res => res.json()).subscribe(data => {
           console.log(data);
-          this.currentUser = data;
-          console.log(this.currentUser);
-          observer.next(true);
+          if(data.error == ''){
+              o_this.currentUser = data;
+              observer.next(true);
+          }else{
+              console.log(data.error);
+              observer.next(false);
+          }
         }, (error)=> {
           console.log(error);
           observer.next(false);
@@ -61,23 +55,28 @@ export class AuthService {
       return Observable.throw("Please insert credentials");
     } else {
       let url = "http://dateworld.co:8080/accounts/resources/register";
-      var postData = {
-        firstname: credentials.firstname,
-        lastname: credentials.lastname,
-        address1: credentials.address1,
-        address2: credentials.address2,
-        city: credentials.city,
-        country: credentials.country,
-        tel: credentials.tel,
-        email: credentials.email,
-        password: credentials.password
-      }
 
       return Observable.create(observer => {
           this.http.post(url, credentials).map(res => res.json()).subscribe(data => {
           console.log(data);
-          
-          observer.next(true);
+          if(data.error == ''){
+              this.currentUser.firstname = credentials.firstname
+              this.currentUser.lastname = credentials.lastname
+              this.currentUser.address1 = credentials.address1
+              this.currentUser.address2 = credentials.address2
+              this.currentUser.city = credentials.city
+              this.currentUser.country = credentials.country
+              this.currentUser.tel = credentials.tel
+              this.currentUser.email = credentials.email
+              this.currentUser.password = credentials.password
+
+              this.currentUser.id = data.id
+
+              observer.next(true);
+          }else {
+              console.log(data.error)
+              observer.next(false);
+          }
         }, (error)=> {
           console.log(error);
           observer.next(false);
@@ -87,6 +86,7 @@ export class AuthService {
   }
  
   public getUserInfo() : User {
+    console.log(this.currentUser)
     return this.currentUser;
   }
  

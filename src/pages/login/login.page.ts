@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, MenuController, AlertController, LoadingController, Loading } from 'ionic-angular';
+import { NavController, MenuController, AlertController, LoadingController, Loading, ModalController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
 import { RegisterPage } from '../register/register.page';
+
 import { HomePage } from "../home/home.page";
  
 @Component({
@@ -12,7 +13,14 @@ export class LoginPage {
   loading: Loading;
   registerCredentials = { idemail: '', password: '' };
  
-  constructor(private menu: MenuController, private nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) { }
+  constructor(
+    private menu: MenuController, 
+    private nav: NavController, 
+    private auth: AuthService, 
+    private alertCtrl: AlertController, 
+    private loadingCtrl: LoadingController,
+    private modal: ModalController
+    ) { }
  
 
   ionViewDidEnter() {
@@ -20,7 +28,14 @@ export class LoginPage {
   }
 
   public createAccount() {
-    this.nav.push(RegisterPage);
+    // this.nav.push(RegisterPage);
+    let modal = this.modal.create(RegisterPage);
+		modal.onDidDismiss(item => {
+			if (!item) {
+				return;
+			}
+		});
+		modal.present();
   }
  
   public login() {
@@ -34,7 +49,7 @@ export class LoginPage {
         this.nav.setRoot(HomePage);
         console.log(this.auth.getUserInfo());
       } else {
-        this.showError("Access Denied");
+        this.showError("login failed");
       }
     },
       error => {

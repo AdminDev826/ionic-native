@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { Platform, MenuController, App, Nav } from 'ionic-angular';
+import { Platform, MenuController, App, Nav, ModalController } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
 
 import { HomePage } from '../pages/home/home.page';
@@ -41,6 +41,7 @@ import { StreamingMediaPage } from '../pages/streaming-media/streaming-media.pag
 import { ThemeableBrowserPage } from '../pages/themeable-browser/themeable-browser.page';
 import { InsomniaPage } from '../pages/insomnia/insomnia.page';
 import { LoginPage } from '../pages/login/login.page';
+import { RegisterPage } from "../pages/register/register.page";
 
 
 @Component({
@@ -62,7 +63,7 @@ export class MyApp {
 
 	@ViewChild(Nav) nav: Nav;
 
-	constructor(platform: Platform, menu: MenuController, app: App) {
+	constructor(platform: Platform, menu: MenuController, app: App, private modal: ModalController) {
 
 		this.menu = menu;
 		// set up our app
@@ -109,7 +110,8 @@ export class MyApp {
 			{ title: 'Youtube player', component: YoutubeVideoPlayerPage, icon: 'logo-youtube' },
 			{ title: 'Streaming media', component: StreamingMediaPage, icon: 'logo-playstation' },
 			{ title: 'Themeable browser', component: ThemeableBrowserPage, icon: 'color-palette' },
-			{ title: 'Insomnia', component: InsomniaPage, icon: 'moon' }
+			{ title: 'Insomnia', component: InsomniaPage, icon: 'moon' },
+			{ title: 'Registration', component: RegisterPage, icon: 'key' }
 		];
 
 		// this.rootPage = HomePage;
@@ -119,6 +121,10 @@ export class MyApp {
 	initializeApp() {
 		this.platform.ready().then(() => {
 			StatusBar.styleDefault();
+
+			setTimeout(() => {
+				navigator.splashscreen.hide()
+			}, 100);
 		});
 	}
 
@@ -127,7 +133,17 @@ export class MyApp {
 		this.menu.close();
 		// navigate to the new page if it is not the current page
 		let component = page.component;
-		this.nav.setRoot(component);
+		if(page.title == 'Registration'){
+			let modal = this.modal.create(component);
+			modal.onDidDismiss(item => {
+				if (!item) {
+					return;
+				}
+			});
+			modal.present();
+		}else{
+			this.nav.setRoot(component);
+		}
 	}
 
 	setWidth() {

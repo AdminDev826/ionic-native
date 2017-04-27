@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
 import { HomePage } from "../home/home.page";
+import { ViewController, NavParams } from 'ionic-angular';
 
  
 @Component({
@@ -10,9 +11,19 @@ import { HomePage } from "../home/home.page";
 })
 export class RegisterPage {
   createSuccess = false;
-  registerCredentials = { firstname: '', lastname: '', address1: '', address2: '', city: '', country: '', tel: '', email: '', password: '' };
+  registerCredentials = { 
+    firstname: '', 
+    lastname: '', 
+    address1: '', 
+    address2: '', 
+    city: '', 
+    country: '', 
+    tel: '', 
+    email: '', 
+    password: '' 
+  };
  
-  constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController) { }
+  constructor(private viewCtrl: ViewController, private nav: NavController, private auth: AuthService, private alertCtrl: AlertController) { }
  
   public register() {
     this.auth.register(this.registerCredentials).subscribe(success => {
@@ -37,8 +48,9 @@ export class RegisterPage {
           text: 'OK',
           handler: data => {
             if (this.createSuccess) {
-              this.nav.popToRoot();
+              // this.nav.popToRoot();
               // this.nav.setRoot(HomePage);
+              this.close()
             }
           }
         }
@@ -46,4 +58,8 @@ export class RegisterPage {
     });
     alert.present();
   }
+
+  close() {
+		this.viewCtrl.dismiss();
+	}
 }

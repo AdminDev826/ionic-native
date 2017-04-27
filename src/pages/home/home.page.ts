@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Nav } from 'ionic-angular';
-
+import { AuthService } from '../../providers/auth-service';
 import { CalendarPage } from '../calendar/calendar.page';
 import { ThemeableBrowserPage } from '../themeable-browser/themeable-browser.page';
 import { Tile } from './models/tile.model';
@@ -9,6 +9,7 @@ import { CallService } from '../../services/call.service';
 import { MapsService } from '../../services/maps.service';
 import { InAppBrowserService } from '../../services/in-app-browser.service';
 import { data } from './home-data';
+import { User } from "../../models/User";
 
 @Component({
 	templateUrl: 'home.html'
@@ -22,12 +23,15 @@ export class HomePage {
 	private browserService: InAppBrowserService;
 	private nav: Nav;
 
+	userInfo = new User()
+
 	constructor(
 		emailService: EmailService,
 		callService: CallService,
 		mapsService: MapsService,
 		browserService: InAppBrowserService,
-		nav: Nav
+		nav: Nav, 
+		private auth: AuthService
 	) {
 		this.emailService = emailService;
 		this.callService = callService;
@@ -35,6 +39,8 @@ export class HomePage {
 		this.browserService = browserService;
 		this.nav = nav;
 		this.initTiles();
+		this.userInfo = this.auth.getUserInfo()
+		console.log(this.userInfo)
 	}
 
 	public navigateTo(tile) {

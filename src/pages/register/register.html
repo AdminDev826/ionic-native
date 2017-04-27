@@ -1,6 +1,9 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Register</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="close()">Close</button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
  
@@ -38,13 +41,11 @@
             </ion-item>
           </ion-list>
         </ion-col>
-      </ion-row>
-      
+      </ion-row>  
       <ion-row>
         <ion-col class="signup-col">
           <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Register</button>
         </ion-col>
       </ion-row>
-      
     </form>
 </ion-content>
