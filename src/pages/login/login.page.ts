@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, MenuController, AlertController, LoadingController, Loading, ModalController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
 import { RegisterPage } from '../register/register.page';
-
+import { User } from "../../models/User";
 import { HomePage } from "../home/home.page";
  
 @Component({
@@ -11,6 +11,7 @@ import { HomePage } from "../home/home.page";
 })
 export class LoginPage {
   loading: Loading;
+  userInfo = new User()
   registerCredentials = { idemail: '', password: '' };
  
   constructor(
@@ -20,7 +21,8 @@ export class LoginPage {
     private alertCtrl: AlertController, 
     private loadingCtrl: LoadingController,
     private modal: ModalController
-    ) { }
+    ) { 
+    }
  
 
   ionViewDidEnter() {
@@ -34,6 +36,7 @@ export class LoginPage {
 			if (!item) {
 				return;
 			}
+      this.nav.setRoot(HomePage);
 		});
 		modal.present();
   }

@@ -17,20 +17,20 @@ page-register {
          box-shadow: none !important;
      }
  
-     .signup-col {
-       margin: 0px 16px 0px 16px;
-       padding-bottom: 20px;
-     }
- 
      .item-inner {
        border-bottom-color: #ffffff !important;
        box-shadow: none !important;
      }
- 
-     .submit-btn {
-       background: #51CFB1;
-       border-radius: 5px !important;
-       border: 1px solid #ffffff;
-     }
   }
+  .signup-col {
+    margin: 0px 24px 0px 24px;
+    padding-bottom: 20px;
+
+    .submit-btn {
+      background: #51CFB1;
+      border-radius: 5px !important;
+      border: 1px solid #ffffff;
+    }
+  }
+
 }

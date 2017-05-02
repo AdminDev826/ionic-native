@@ -50,7 +50,7 @@ export class RegisterPage {
             if (this.createSuccess) {
               // this.nav.popToRoot();
               // this.nav.setRoot(HomePage);
-              this.close()
+              this.viewCtrl.dismiss(1);
             }
           }
         }
